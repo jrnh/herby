@@ -42,36 +42,6 @@ void Renderer::Destroy()
 	ImGui::DestroyContext();
 }
 
-void Renderer::Replace(IDirect3DDevice9* device)
-{
-	device->GetRenderState(D3DRS_COLORWRITEENABLE, &m_old);
-
-	device->CreateStateBlock(D3DSBT_PIXELSTATE, &m_state_block);
-
-	device->GetVertexDeclaration(&m_declaration);
-	device->GetVertexShader(&m_shader);
-
-	device->SetRenderState(D3DRS_COLORWRITEENABLE, 0xffffffff);
-	device->SetRenderState(D3DRS_SRGBWRITEENABLE, 0u);
-
-	device->SetSamplerState(0u, D3DSAMP_ADDRESSU, D3DTADDRESS_WRAP);
-	device->SetSamplerState(0u, D3DSAMP_ADDRESSV, D3DTADDRESS_WRAP);
-	device->SetSamplerState(0u, D3DSAMP_ADDRESSW, D3DTADDRESS_WRAP);
-	device->SetSamplerState(0u, D3DSAMP_SRGBTEXTURE, 0u);
-}
-
-void Renderer::Restore(IDirect3DDevice9* device)
-{
-	device->SetRenderState(D3DRS_COLORWRITEENABLE, m_old);
-	device->SetRenderState(D3DRS_SRGBWRITEENABLE, 0u);
-
-	m_state_block->Apply();
-	m_state_block->Release();
-
-	device->SetVertexDeclaration(m_declaration);
-	device->SetVertexShader(m_shader);
-}
-
 bool Renderer::Begin()
 {
 	ImGui_ImplDX9_NewFrame();

@@ -9,6 +9,8 @@
 #include "shared/include/win32.hpp"
 #include "shared/include/auto.hpp"
 
+#include "shared/logger/logger.hpp"
+
 #include "shared/memory/object_hook.hpp"
 #include "shared/memory/procedure.hpp"
 #include "shared/memory/macro.hpp"

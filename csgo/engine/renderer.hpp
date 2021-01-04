@@ -31,9 +31,6 @@ public:
 	bool Create( IDirect3DDevice9* device );
 	void Destroy();
 
-	void Replace(IDirect3DDevice9* device);
-	void Restore(IDirect3DDevice9* device);
-
 	bool Begin();
 	void End();
 
@@ -53,11 +50,6 @@ public:
 	void GetTextSize( ImVec2& output, const char* message, ... );
 private:
 	ImDrawList* GetDrawList();
-private:
-	IDirect3DStateBlock9* m_state_block;
-	IDirect3DVertexDeclaration9* m_declaration;
-	IDirect3DVertexShader9* m_shader;
-	DWORD m_old;
 };
 
 }

@@ -2,6 +2,10 @@
 
 void ImageQuit(bool synchronize)
 {
+#ifdef _DEBUG
+	logger::Destroy();
+#endif // _DEBUG
+
 	if (synchronize)
 		std::this_thread::sleep_for(1s);
 
@@ -17,6 +21,10 @@ ULONG ImageFree(HMODULE image, unsigned long code = 0u)
 ULONG ImageLoad(core::Data* data)
 {
 	auto& system = win32::System::Instance();
+
+#ifdef _DEBUG
+	logger::Create("herby debug mode");
+#endif // _DEBUG
 
 	if (csgo::Create())
 	{

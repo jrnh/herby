@@ -18,6 +18,8 @@
 #include <unordered_map>
 #include <any>
 #include <filesystem>
+#include <cstdlib>
+#include <array>
 #include <immintrin.h>
 #include <cstdint>
 #include <cstddef>
