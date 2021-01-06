@@ -1,5 +1,7 @@
 #pragma once
 
+#include "shared/console/console.hpp"
+
 #include "shared/core/data.hpp"
 
 #include "shared/detail/singleton.hpp"

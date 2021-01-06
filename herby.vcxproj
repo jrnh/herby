@@ -161,7 +161,7 @@
     <ClCompile Include="shared\imgui\imgui_impl_win32.cpp" />
     <ClCompile Include="shared\imgui\imgui_tables.cpp" />
     <ClCompile Include="shared\imgui\imgui_widgets.cpp" />
-    <ClCompile Include="shared\logger\logger.cpp" />
+    <ClCompile Include="shared\console\console.cpp" />
     <ClCompile Include="shared\memory\object_hook.cpp" />
     <ClCompile Include="shared\memory\procedure.cpp" />
     <ClCompile Include="shared\memory\scan.cpp" />
@@ -208,6 +208,7 @@
     <ClInclude Include="shared\imgui\imstb_truetype.hpp" />
     <ClInclude Include="shared\include\auto.hpp" />
     <ClInclude Include="shared\include\win32.hpp" />
+    <ClInclude Include="shared\console\console.hpp" />
     <ClInclude Include="shared\logger\logger.hpp" />
     <ClInclude Include="shared\memory\macro.hpp" />
     <ClInclude Include="shared\memory\object_hook.hpp" />

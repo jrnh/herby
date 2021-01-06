@@ -28,6 +28,7 @@ void NetPropSystem::Destroy()
 int NetPropSystem::Get( const std::string& array_name, const std::string& prop_name, RecvProp** prop_out /*= nullptr*/) const
 {
 	auto array_entry = GetArrayEntry(array_name);
+	LOG(prop_name, std::hex, array_entry);
 	return Get(array_entry, prop_name, prop_out);
 }
 

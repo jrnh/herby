@@ -1675,6 +1675,22 @@ static bool Items_SingleStringGetter(void* data, int idx, const char** out_text)
     return true;
 }
 
+bool ImGui::Combo(const char* label, int* current_item, const std::vector< std::string >& items, int height_in_items /*= -1*/)
+{
+    auto get_item = [](void* data, int index, const char** output)
+    {
+        const auto item_array = (std::vector< std::string >*)data;
+
+        if (output)
+            *output = item_array->at(index).c_str();
+
+        return true;
+    };
+
+    auto value_changed = Combo(label, current_item, get_item, (void*)&items, items.size(), height_in_items);
+    return value_changed;
+}
+
 // Old API, prefer using BeginCombo() nowadays if you can.
 bool ImGui::Combo(const char* label, int* current_item, bool (*items_getter)(void*, int, const char**), void* data, int items_count, int popup_max_height_in_items)
 {

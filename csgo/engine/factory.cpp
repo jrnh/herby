@@ -35,12 +35,16 @@ void Factory::CreateFactoryMap( )
 
 	for (auto factory = m_interface_array; factory; factory = factory->m_pNext)
 	{
+		auto& console = console::Console::Instance();
+
 		auto factory_name = std::string(factory->m_pName);
 		factory_name = factory_name.substr(0u, factory_name.size() - 3u);
 
 		auto factory_data = factory->m_CreateFn();
 
 		m_factory_map[factory_name] = factory_data;
+
+		console.Log("[INTERFACE]", m_factory_map[factory_name], "->", std::hex, m_interface_array);
 	}
 }
 
