@@ -155,14 +155,14 @@ bool SmokeTraceLine(Vector start, Vector end)
 void RandomSeed(unsigned int seed)
 {
 	using Fn = void(*)(unsigned int);
-	static auto original = reinterpret_cast<Fn>(GetProcAddress(GetModuleHandleA(XorStr("vstdlib.dll")), XorStr("RandomSeed")));
+	static auto original = reinterpret_cast<Fn>(pe::GetProcAddress(pe::GetModuleHandles(XorStr("vstdlib.dll")), XorStr("RandomSeed")));
 	return original(seed);
 }
 
 float RandomFloat(float min, float max)
 {
 	using Fn = float(*)(float, float);
-	static auto original = reinterpret_cast<Fn>(GetProcAddress(GetModuleHandleA(XorStr("vstdlib.dll")), XorStr("RandomFloat")));
+	static auto original = reinterpret_cast<Fn>(pe::GetProcAddress(pe::GetModuleHandles(XorStr("vstdlib.dll")), XorStr("RandomFloat")));
 	return original(min, max);
 }
 

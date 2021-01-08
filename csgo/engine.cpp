@@ -185,7 +185,7 @@ bool Create()
 	if (!m_glow_object)
 		return false;
 
-	m_mem_alloc = *reinterpret_cast<IMemAlloc**>(GetProcAddress(GetModuleHandleA(XorStr("tier0.dll")), XorStr("g_pMemAlloc")));
+	m_mem_alloc = *reinterpret_cast<IMemAlloc**>(pe::GetProcAddress(pe::GetModuleHandles(XorStr("tier0.dll")), XorStr("g_pMemAlloc")));
 
 	if (!m_mem_alloc)
 		return false;

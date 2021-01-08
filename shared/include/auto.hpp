@@ -25,7 +25,6 @@
 #include <cstddef>
 #include <utility>
 #include <type_traits>
-
 using namespace std::chrono_literals;
 using namespace std::string_literals;
 

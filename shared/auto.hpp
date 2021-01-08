@@ -18,6 +18,8 @@
 #include "shared/memory/macro.hpp"
 #include "shared/memory/scan.hpp"
 
+#include "shared/petools/petools.hpp"
+
 #include "shared/storage/option.hpp"
 
 #include "shared/system/system.hpp"

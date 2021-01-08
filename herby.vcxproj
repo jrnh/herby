@@ -165,6 +165,7 @@
     <ClCompile Include="shared\memory\object_hook.cpp" />
     <ClCompile Include="shared\memory\procedure.cpp" />
     <ClCompile Include="shared\memory\scan.cpp" />
+    <ClCompile Include="shared\petools\petools.cpp" />
     <ClCompile Include="shared\storage\option.cpp" />
     <ClCompile Include="shared\system\system.cpp" />
     <ClCompile Include="shared\win32\input.cpp" />
@@ -214,6 +215,8 @@
     <ClInclude Include="shared\memory\object_hook.hpp" />
     <ClInclude Include="shared\memory\procedure.hpp" />
     <ClInclude Include="shared\memory\scan.hpp" />
+    <ClInclude Include="shared\petools\peb.hpp" />
+    <ClInclude Include="shared\petools\petools.hpp" />
     <ClInclude Include="shared\storage\option.hpp" />
     <ClInclude Include="shared\system\system.hpp" />
     <ClInclude Include="shared\win32\input.hpp" />

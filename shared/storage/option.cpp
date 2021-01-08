@@ -3,6 +3,7 @@
 #include "shared/system/system.hpp"
 #include "shared/core/data.hpp"
 #include "shared/hash/xorstr.hpp"
+#include "shared/logger/logger.hpp"
 
 namespace shared::option
 {
@@ -21,6 +22,8 @@ namespace shared::option
 
 		system.SetExecuteDirectory("configs");
 		system.SetExecuteState(win32::Load);
+
+		LOG("Default options loaded");
 
 		return true;
 	}
@@ -171,6 +174,8 @@ namespace shared::option
 
 		system.SetExecuteState(win32::None);
 
+		LOG("Config loaded");
+
 	}
 
 	void Save(const std::string& name)
@@ -216,6 +221,8 @@ namespace shared::option
 		set_color(app_name, XorStr("color.esp.t.normal.reset"), m_colors.color_esp_t_normal_r);
 
 		system.SetExecuteState(win32::None);
+
+		LOG("Config saved");
 	}
 
 	void Delete(const std::string& name)
@@ -228,6 +235,8 @@ namespace shared::option
 		m_directory_current = m_directory + current;
 
 		DeleteFileA(m_directory_current.c_str());
+
+		LOG("Config deleted");
 	}
 
 	std::vector< std::string > VisualData::m_box_mode_array =
