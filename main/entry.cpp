@@ -2,6 +2,14 @@
 
 void ImageQuit(bool synchronize)
 {
+	auto& console = console::Console::Instance();
+	
+	LOG_DESTROY;
+#ifdef _DEBUG
+	console.Destroy();
+#endif // DEBUG
+
+
 	if (synchronize)
 		std::this_thread::sleep_for(1s);
 
@@ -17,6 +25,12 @@ ULONG ImageFree(HMODULE image, unsigned long code = 0u)
 ULONG ImageLoad(core::Data* data)
 {
 	auto& system = win32::System::Instance();
+	auto& console = console::Console::Instance();
+
+	LOG_CREATE;
+#ifdef _DEBUG
+	console.Create();
+#endif // DEBUG
 
 	if (csgo::Create())
 	{

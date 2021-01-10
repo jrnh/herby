@@ -25,6 +25,9 @@ std::wstring ToLower(std::wstring data);
 std::string ToUpper(std::string data);
 std::wstring ToUpper(std::wstring data);
 
+std::string ToString(std::wstring data);
+std::wstring ToWString(std::string data);
+
 template< typename T >
 void Clamp(T& data, T min, T max)
 {

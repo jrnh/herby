@@ -39,6 +39,9 @@
     <ClCompile Include="shared\core\data.cpp" />
     <ClCompile Include="csgo\engine\prediction.cpp" />
     <ClCompile Include="csgo\hook\run_command.cpp" />
+    <ClCompile Include="shared\imgui\imgui_tables.cpp" />
+    <ClCompile Include="shared\console\console.cpp" />
+    <ClCompile Include="shared\petools\petools.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sdk\sdk.hpp" />
@@ -82,6 +85,10 @@
     <ClInclude Include="shared\core\data.hpp" />
     <ClInclude Include="shared\hash\xorstr.hpp" />
     <ClInclude Include="csgo\engine\prediction.hpp" />
+    <ClInclude Include="shared\console\console.hpp" />
+    <ClInclude Include="shared\logger\logger.hpp" />
+    <ClInclude Include="shared\petools\petools.hpp" />
+    <ClInclude Include="shared\petools\peb.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="sdk\object\player.hpp" />

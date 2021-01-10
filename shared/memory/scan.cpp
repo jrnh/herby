@@ -1,4 +1,5 @@
 #include "shared/memory/scan.hpp"
+#include "shared/petools/petools.hpp"
 
 #define IN_RANGE( value, min, max ) ( value >= min && value <= max )
 
@@ -66,7 +67,7 @@ std::uintptr_t ScanImage( const std::string& image_name,
 	const std::intptr_t displacement /*= 0*/,
 	const std::size_t read /*= 0*/ )
 {
-	const auto image = reinterpret_cast< std::uintptr_t >( GetModuleHandleA( !( image_name.empty() ) ? image_name.c_str() : nullptr ) );
+	const auto image = reinterpret_cast< std::uintptr_t >( pe::GetModuleHandles( !( image_name.empty() ) ? image_name.c_str() : nullptr ) );
 
 	if( !image )
 		return 0;

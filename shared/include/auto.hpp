@@ -18,12 +18,13 @@
 #include <unordered_map>
 #include <any>
 #include <filesystem>
+#include <cstdlib>
+#include <array>
 #include <immintrin.h>
 #include <cstdint>
 #include <cstddef>
 #include <utility>
 #include <type_traits>
-
 using namespace std::chrono_literals;
 using namespace std::string_literals;
 

@@ -6,14 +6,14 @@ namespace csgo::engine
 {
 
 Factory::Factory( const std::string& image_name ) :
-	m_image( GetModuleHandleA( image_name.c_str() ) )
+	m_image( pe::GetModuleHandles( image_name.c_str() ) )
 {
 	CreateFactoryMap();
 }
 
 void Factory::CreateFactoryMap( )
 {
-	auto create_interface = reinterpret_cast<std::uintptr_t>(GetProcAddress(m_image, XorStr("CreateInterface")));
+	auto create_interface = reinterpret_cast<std::uintptr_t>(pe::GetProcAddress(m_image, XorStr("CreateInterface")));
 
 	if (!create_interface)
 		return;
@@ -35,12 +35,16 @@ void Factory::CreateFactoryMap( )
 
 	for (auto factory = m_interface_array; factory; factory = factory->m_pNext)
 	{
+		auto& console = console::Console::Instance();
+
 		auto factory_name = std::string(factory->m_pName);
 		factory_name = factory_name.substr(0u, factory_name.size() - 3u);
 
 		auto factory_data = factory->m_CreateFn();
 
 		m_factory_map[factory_name] = factory_data;
+
+		console.Log("[INTERFACE]", m_factory_map[factory_name], "->", std::hex, m_interface_array);
 	}
 }
 
